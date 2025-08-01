@@ -1,0 +1,131 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-form {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  animation: fadeInUp 0.8s ease;
+  transition: all 0.3s ease;
+}
+
+.register-form h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.register-form label {
+  font-size: 14px;
+  color: #f1f5f9;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 500;
+}
+
+.register-form select,
+.register-form input[type="date"] {
+  padding: 14px;
+  margin-bottom: 22px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #1f2937;
+  width: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.register-form select:focus,
+.register-form input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+.service-heading {
+  color: #e0f2fe;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0 12px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.checkbox-label {
+  font-size: 15px;
+  color: #f8fafc;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkbox-label input {
+  margin-right: 12px;
+  accent-color: #3b82f6;
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-label:hover {
+  color: #93c5fd;
+}
+
+.register-form button {
+  padding: 14px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.register-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
