@@ -4,7 +4,7 @@ import Home from './components/Auth/Home';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import BookingForm from './components/Customer/BookingForm';
-import CustomerDashboard from './components/Customer/CustomerDashboard'; // ✅ Imported
+import CustomerDashboard from './components/Customer/CustomerDashboard'; 
 import OwnerDashboard from './components/Owner/Dashboard';
 import Services from './components/Owner/Services';
 

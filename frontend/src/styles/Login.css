@@ -1,4 +1,4 @@
-/* Full-screen background with image and center alignment */
+
 body {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
   align-items: center;
 }
 
-/* Glassmorphic login card */
+
 .login-container {
   width: 460px;
   padding: 48px 36px;
@@ -28,7 +28,7 @@ body {
   animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Heading */
+
 .login-title {
   font-size: 30px;
   font-weight: 700;
@@ -38,14 +38,14 @@ body {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Form */
+
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Input fields */
+
 .login-form input {
   padding: 16px;
   font-size: 16px;
@@ -67,7 +67,7 @@ body {
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-/* Submit button */
+
 .login-form button {
   padding: 16px;
   font-size: 17px;
@@ -85,7 +85,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Fade-in animation */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -97,7 +97,7 @@ body {
   }
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
   .login-container {
     width: 90%;

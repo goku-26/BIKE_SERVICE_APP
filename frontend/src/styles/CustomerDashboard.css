@@ -1,7 +1,7 @@
 
 .dashboard-wrapper {
-  width: 100vw;            /* Force full screen width */
-  height: 100vh;           /* Force full screen height */
+  width: 100vw;            
+  height: 100vh;          
   padding: 3rem 2rem;
   background: linear-gradient(120deg, #f6f9fc, #e3f2fd);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-/* Dashboard title styling */
+
 .dashboard-title {
   font-size: 3rem;
   font-weight: 700;
@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-/* Booking table wrapper with glassmorphism effect */
+
 .booking-table-container {
   width: 100%;
   max-width: 1280px;
@@ -34,14 +34,14 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Table styles */
+
 .booking-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
 }
 
-/* Table headers */
+
 .booking-table th {
   padding: 1.2rem;
   background-color: #d0e9ff;
@@ -52,7 +52,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Table cells */
+
 .booking-table td {
   padding: 1rem;
   background-color: #ffffff;
@@ -61,12 +61,12 @@
   text-align: center;
 }
 
-/* Hover effect for rows */
+
 .booking-table tr:hover td {
   background-color: #f2f9ff;
 }
 
-/* Accept button styles */
+
 .accept-btn {
   background: linear-gradient(45deg, #1abc9c, #16a085);
   color: #ffffff;
@@ -86,7 +86,7 @@
   box-shadow: 0 6px 20px rgba(22, 160, 133, 0.4);
 }
 
-/* Responsive breakpoints */
+
 @media (max-width: 1024px) {
   .dashboard-title {
     font-size: 2.2rem;
