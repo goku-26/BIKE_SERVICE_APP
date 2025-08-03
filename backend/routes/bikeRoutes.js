@@ -1,5 +1,3 @@
-// routes/bikeRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const {
@@ -7,7 +5,7 @@ const {
   getModelsByBrand
 } = require('../controllers/bikeController');
 
-router.get('/brands', getBrands); // GET /api/bikes/brands
-router.get('/models/:brand', getModelsByBrand); // GET /api/bikes/models/Yamaha
+router.get('/brands', getBrands); 
+router.get('/models/:brand', getModelsByBrand); 
 
 module.exports = router;

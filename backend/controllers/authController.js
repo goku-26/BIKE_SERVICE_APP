@@ -2,26 +2,24 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-// Register Controller
+
 exports.register = async (req, res) => {
     try {
         const { name, email, password, mobile } = req.body;
 
-        // Validate input
         if (!name || !email || !password || !mobile) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
-        // Check for existing user
+        
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
 
-        // Hash password
+        
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create user
         const user = await User.create({
             name,
             email,
@@ -46,8 +44,7 @@ exports.register = async (req, res) => {
     }
 };
 
-// Login Controller
-// Login Controller
+
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -68,7 +65,7 @@ exports.login = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        const isOwner = email === 'gokulp2608@gmail.com'; // Check if user is owner
+        const isOwner = email === 'gokulp2608@gmail.com'; 
 
         const token = jwt.sign({ id: user._id, isOwner }, process.env.JWT_SECRET, {
             expiresIn: '1d'
@@ -82,7 +79,7 @@ exports.login = async (req, res) => {
                 name: user.name,
                 email: user.email,
                 mobile: user.mobile,
-                isOwner // Add owner status in response
+                isOwner 
             }
         });
 

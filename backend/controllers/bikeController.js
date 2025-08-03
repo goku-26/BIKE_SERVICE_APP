@@ -1,5 +1,3 @@
-// controllers/bikeController.js
-
 const brands = ['Honda', 'Yamaha', 'Suzuki', 'TVS', 'Royal Enfield'];
 
 const bikeModels = {

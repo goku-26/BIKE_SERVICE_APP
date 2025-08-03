@@ -2,16 +2,16 @@ const Booking = require('../models/Booking');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-// ✅ Setup Transporter
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // This must be the app password (no spaces!)
+    pass: process.env.EMAIL_PASS, 
   },
 });
 
-// ✅ Verify transporter
+
 transporter.verify((error, success) => {
   if (error) {
     console.error('❌ SMTP connection failed:', error.message);
@@ -20,7 +20,7 @@ transporter.verify((error, success) => {
   }
 });
 
-// ✅ Create Booking
+
 exports.createBooking = async (req, res) => {
   try {
     console.log('📥 Booking request received:', req.body);
@@ -33,25 +33,24 @@ exports.createBooking = async (req, res) => {
   }
 };
 
-// ✅ Update Booking Status + Email
+
 exports.updateStatus = async (req, res) => {
   try {
     const { status, cost, pickupTime, pickupDate } = req.body;
 
-    // ✅ Fetch the full booking
     const booking = await Booking.findById(req.params.id);
     if (!booking) {
       return res.status(404).json({ message: 'Booking not found' });
     }
 
-    // ✅ Update fields
+
     booking.status = status;
     booking.cost = cost;
     booking.pickupTime = pickupTime;
     booking.pickupDate = pickupDate;
     await booking.save();
 
-    // ✅ Send Email if service is completed
+
     if (['Ready for Delivery', 'Completed'].includes(status)) {
       const mailOptions = {
         from: `"Bike Service" <${process.env.EMAIL_USER}>`,
@@ -89,7 +88,7 @@ exports.updateStatus = async (req, res) => {
   }
 };
 
-// ✅ Get All Bookings
+
 exports.getBookings = async (req, res) => {
   try {
     const bookings = await Booking.find().sort({ createdAt: -1 });
@@ -99,7 +98,7 @@ exports.getBookings = async (req, res) => {
   }
 };
 
-// ✅ Get Bookings by User ID
+
 exports.getUserBookings = async (req, res) => {
   try {
     const bookings = await Booking.find({ user: req.params.userId }).sort({ createdAt: -1 });
@@ -109,7 +108,7 @@ exports.getUserBookings = async (req, res) => {
   }
 };
 
-// ✅ Update Suggested Services for a Booking
+
 exports.suggestService = async (req, res) => {
   const { suggestedService } = req.body;
   try {
@@ -128,7 +127,7 @@ exports.suggestService = async (req, res) => {
   }
 };
 
-// ✅ Accept Suggested Service and Merge with Original
+
 exports.acceptSuggestedService = async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id);

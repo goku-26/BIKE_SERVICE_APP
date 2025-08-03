@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     isOwner: { type: Boolean, default: false }
 });
 
-// Hash password only if modified (for registration or update)
+
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
 
