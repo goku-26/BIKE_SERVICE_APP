@@ -13,7 +13,6 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
-      {/* Navbar */}
       <div className="navbar">
         <h2>Bike Service Booking</h2>
         <div className="navbar-links">
@@ -33,7 +32,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-content">
           <h3>Welcome to Bike Service Booking!</h3>

@@ -16,16 +16,16 @@ function Login() {
     try {
       const res = await API.post('/auth/login', { email, password });
 
-      // Save auth token and user data
+     
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
 
-      // Role-based navigation
+     
       if (res.data.user.isOwner) {
         localStorage.setItem('isOwner', true);
         navigate('/ownerdashboard');
       } else {
-        navigate('/booking-form'); // Redirect customer to booking form
+        navigate('/booking-form'); 
       }
     } catch (err) {
       const msg = err.response?.data?.message || 'Login failed. Please try again.';

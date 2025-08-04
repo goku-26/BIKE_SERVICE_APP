@@ -7,7 +7,7 @@ const API = axios.create({
   },
 });
 
-// Attach token if available
+
 API.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -22,7 +22,7 @@ API.interceptors.request.use(
   }
 );
 
-// Optional: You can also handle global response errors
+
 API.interceptors.response.use(
   (response) => response,
   (error) => {

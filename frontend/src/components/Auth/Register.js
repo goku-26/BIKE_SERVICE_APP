@@ -25,7 +25,7 @@ function Register() {
       const res = await API.post('/auth/register', formData);
 
       alert('Registration successful! Please login.');
-      navigate('/login'); // ✅ Redirect to Login page
+      navigate('/login'); 
     } catch (err) {
       console.error("Registration error:", err.response?.data || err.message);
       alert(err.response?.data?.message || "Registration failed. Please check the fields.");
