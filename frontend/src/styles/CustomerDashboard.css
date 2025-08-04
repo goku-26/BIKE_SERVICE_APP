@@ -1,9 +1,12 @@
-
 .dashboard-wrapper {
-  width: 100vw;            
-  height: 100vh;          
+  width: 100vw;
+  height: 100vh;
   padding: 3rem 2rem;
-  background: linear-gradient(120deg, #f6f9fc, #e3f2fd);
+  background-image: url("https://preview.redd.it/2bx0e9jyts9b1.jpg?width=1080&crop=smart&auto=webp&s=ba3253c721262edf4b61147a38ad24e388c5704c");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
@@ -12,12 +15,23 @@
 }
 
 
+.dashboard-wrapper::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
 .dashboard-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #0a3d62;
+  color: #ffffff;
   margin-bottom: 2rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
@@ -25,76 +39,66 @@
 .booking-table-container {
   width: 100%;
   max-width: 1280px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
+  margin: 40px auto;
   padding: 2rem;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   overflow-x: auto;
   transition: all 0.3s ease-in-out;
+}
+
+
+.booking-table-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 
 .booking-table {
   width: 100%;
   border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333;
   font-size: 1rem;
 }
 
 
 .booking-table th {
-  padding: 1.2rem;
-  background-color: #d0e9ff;
-  color: #0e2f44;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-bottom: 2px solid #a9cce3;
-  letter-spacing: 0.05em;
-}
-
-
-.booking-table td {
-  padding: 1rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  color: #2c3e50;
-  text-align: center;
-}
-
-
-.booking-table tr:hover td {
-  background-color: #f2f9ff;
-}
-
-
-.accept-btn {
-  background: linear-gradient(45deg, #1abc9c, #16a085);
-  color: #ffffff;
-  border: none;
-  padding: 0.6rem 1.4rem;
-  border-radius: 12px;
-  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.6);
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(22, 160, 133, 0.3);
-}
-
-.accept-btn:hover {
-  background: linear-gradient(45deg, #149174, #138d75);
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(22, 160, 133, 0.4);
 }
 
 
-@media (max-width: 1024px) {
-  .dashboard-title {
-    font-size: 2.2rem;
+.booking-table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+@media (max-width: 768px) {
+  .booking-table-heading {
+    font-size: 1.5rem;
   }
 
   .booking-table th,
   .booking-table td {
-    padding: 1rem;
+    padding: 12px 10px;
     font-size: 0.95rem;
   }
 }

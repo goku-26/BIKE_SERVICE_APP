@@ -1,102 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("https://preview.redd.it/2bx0e9jyts9b1.jpg?width=1080&crop=smart&auto=webp&s=ba3253c721262edf4b61147a38ad24e388c5704c");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 .dashboard-container {
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fdfdfd;
+  margin: 80px auto 40px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .dashboard-heading {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #1f2937;
+  font-size: 30px;
+  margin-bottom: 32px;
+  color: #f8fafc;
   font-weight: 700;
 }
 
 .table-wrapper {
   overflow-x: auto;
+  padding-top: 12px;
 }
 
 .booking-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  background-color: white;
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: #f1f5f9;
+  transition: background-color 0.3s ease;
 }
 
-.booking-table thead {
-  background-color: #374151;
-  color: white;
+.booking-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1;
+  font-size: 15px;
+  color: #e2e8f0;
 }
 
 .booking-table th,
 .booking-table td {
-  padding: 14px 16px;
+  padding: 14px 18px;
   text-align: left;
   font-size: 15px;
+  color: #e2e8f0;
 }
 
 .booking-table tbody tr {
-  border-bottom: 1px solid #e5e7eb;
-  transition: background-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .booking-table tbody tr:hover {
-  background-color: #f3f4f6;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff; 
+}
+
+.booking-table tbody tr:hover td {
+  color: #0c0c0c;
 }
 
 input[type="text"] {
   padding: 8px 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 14px;
   margin-right: 8px;
   width: 220px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #131313;
+}
+
+input[type="text"]::placeholder {
+  color: #121212;
 }
 
 button {
-  padding: 8px 14px;
+  padding: 10px 16px;
   margin: 4px 4px 0 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  will-change: transform;
+  font-weight: 600;
+  color: #fff;
 }
 
 .edit-btn {
-  background-color: #3b82f6;
-  color: white;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
 }
 
 .edit-btn:hover {
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #4338ca, #2563eb);
+  transform: scale(1.03);
 }
 
 .save-btn {
-  background-color: #10b981;
-  color: white;
+  background: linear-gradient(135deg, #10b981, #34d399);
 }
 
 .save-btn:hover {
-  background-color: #059669;
+  background: linear-gradient(135deg, #059669, #22c55e);
+  transform: scale(1.03);
+}
+
+.suggest-service-button {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+}
+
+.suggest-service-button:hover {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  transform: scale(1.03);
 }
 
 .mark-complete-button {
-  background-color: #f59e0b;
-  color: white;
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
 }
 
 .mark-complete-button:hover {
-  background-color: #d97706;
+  background: linear-gradient(135deg, #be123c, #db2777);
+  transform: scale(1.03);
 }
-
 
 @media screen and (max-width: 768px) {
   .booking-table th,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import API from '../../api/axios';
 import '../../styles/BookingForm.css';
 
@@ -7,8 +7,8 @@ function BookingForm() {
   const [form, setForm] = useState({
     bikeBrand: '',
     bikeName: '',
-    service: '',
-    bookingDate: '',
+    serviceType: '',
+    bookingDate: ''
   });
 
   const [brands, setBrands] = useState([]);
@@ -27,7 +27,21 @@ function BookingForm() {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
   useEffect(() => {
-    // Fetch all bike brands from backend
+    const checkExistingBooking = async () => {
+      if (!user?.email) return;
+      try {
+        const response = await API.get(`/bookings/customer/${user.email}`);
+        if (Array.isArray(response.data) && response.data.some(b => b.serviceType)) {
+          navigate('/customer-dashboard');
+        }
+      } catch (error) {
+        console.error('Error checking booking:', error);
+      }
+    };
+    checkExistingBooking();
+  }, [navigate, user]);
+
+  useEffect(() => {
     const fetchBrands = async () => {
       try {
         const response = await API.get('/bikes/brands');
@@ -40,7 +54,6 @@ function BookingForm() {
   }, []);
 
   useEffect(() => {
-    // Fetch bike models when brand is selected
     const fetchModels = async () => {
       if (!form.bikeBrand) return setModels([]);
       try {
@@ -63,22 +76,19 @@ function BookingForm() {
     setLoading(true);
 
     const bookingData = {
-      ...form,
       customerName: user?.name || '',
       email: user?.email || '',
       user: user?._id || '',
+      bikeBrand: form.bikeBrand,
+      bikeName: form.bikeName,
+      serviceType: form.serviceType,
+      bookingDate: form.bookingDate
     };
 
     try {
       await API.post('/bookings', bookingData);
       alert('Booking submitted successfully!');
-      setForm({
-        bikeBrand: '',
-        bikeName: '',
-        service: '',
-        bookingDate: '',
-      });
-      navigate('/customer-dashboard'); 
+      navigate('/customer-dashboard');
     } catch (err) {
       console.error('Booking failed:', err);
       alert('Booking failed. Please try again.');
@@ -92,47 +102,27 @@ function BookingForm() {
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Book a Bike Service</h2>
 
-        {/* Bike Brand */}
-        <select
-          name="bikeBrand"
-          value={form.bikeBrand}
-          onChange={handleChange}
-          required
-        >
+        <select name="bikeBrand" value={form.bikeBrand} onChange={handleChange} required>
           <option value="">Select Bike Brand</option>
           {brands.map((brand) => (
             <option key={brand} value={brand}>{brand}</option>
           ))}
         </select>
 
-        {/* Bike Name */}
-        <select
-          name="bikeName"
-          value={form.bikeName}
-          onChange={handleChange}
-          disabled={!form.bikeBrand}
-          required
-        >
+        <select name="bikeName" value={form.bikeName} onChange={handleChange} required disabled={!form.bikeBrand}>
           <option value="">Select Bike Name</option>
           {models.map((model) => (
             <option key={model} value={model}>{model}</option>
           ))}
         </select>
 
-        {/* Service */}
-        <select
-          name="service"
-          value={form.service}
-          onChange={handleChange}
-          required
-        >
+        <select name="serviceType" value={form.serviceType} onChange={handleChange} required>
           <option value="">Select Service</option>
           {services.map((service, index) => (
             <option key={index} value={service}>{service}</option>
           ))}
         </select>
 
-        {/* Booking Date */}
         <input
           type="date"
           name="bookingDate"
@@ -141,7 +131,7 @@ function BookingForm() {
           required
           min={new Date().toISOString().split('T')[0]}
         />
-
+        
         <button type="submit" disabled={loading}>
           {loading ? 'Booking...' : 'Submit Booking'}
         </button>
