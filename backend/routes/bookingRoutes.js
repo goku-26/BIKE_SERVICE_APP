@@ -5,7 +5,8 @@ const {
   getBookings,
   getUserBookings,
   suggestService,
-  acceptSuggestedService
+  acceptSuggestedService,
+  getBookingsByCustomerEmail
 } = require('../controllers/bookingController');
 
 const router = express.Router();
@@ -27,6 +28,9 @@ router.get('/', getBookings);
 
 
 router.get('/user/:userId', getUserBookings);
+
+
+router.get('/customer/:email', getBookingsByCustomerEmail);
 
 module.exports = router;
 
