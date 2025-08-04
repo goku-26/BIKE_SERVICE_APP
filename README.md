@@ -42,7 +42,7 @@ This email and password used in the project are generated via Google App Passwor
 
 6. Copy the generated password and paste it into the .env file as the value for EMAIL_PASS.
 
-## Final Step(To start backend)
+# Final Step(To start backend)
 
 - npm run dev 
 
