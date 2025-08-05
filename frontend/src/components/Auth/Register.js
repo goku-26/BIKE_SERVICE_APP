@@ -20,10 +20,8 @@ function Register() {
     e.preventDefault();
 
     try {
-      console.log("Registering with:", formData);
-
       const res = await API.post('/auth/register', formData);
-
+      
       alert('Registration successful! Please login.');
       navigate('/login'); 
     } catch (err) {

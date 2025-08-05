@@ -86,7 +86,7 @@ function OwnerDashboard() {
                 <td>{b.email}</td>
                 <td>{b.bikeBrand}</td>
                 <td>{b.bikeName}</td>
-                <td>{b.service}</td>
+                <td>{b.serviceType}</td>
                 <td>{b.status}</td>
                 <td>
                   {editModeId === b._id ? (
